@@ -4,11 +4,12 @@ import Header from '@/Components/Header'
 import SearchBar from '@/Components/Search'
 import InfoCard from '@/Components/DiscoverCard'
 import InfoCardList from '@/Components/InfoCardList'
+import { AntDesign } from '@expo/vector-icons'
 
 export default function discover() {
   return (
     <View style={{ flex: 1,}}>
-      <Header icon="menu"/>
+      <Header icon={<AntDesign name="book" size={24} color="white" />}/>
       <SearchBar/>
       <InfoCardList/>
       

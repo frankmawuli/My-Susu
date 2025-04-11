@@ -1,56 +1,80 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons'; // from Expo's icon pack
+import { View, Text, StyleSheet, Image } from 'react-native';
 
-interface MessagePreviewProps {
+interface ChatCardProps {
+    title: string;
     name: string;
-    text: string;
+    time: string;
+    message: string;
 }
 
-const MessagePreview: React.FC<MessagePreviewProps> = ({ name, text }) => {
+const ChatCard: React.FC<ChatCardProps> = ({ title, name, time, message }) => {
     return (
-        <View style={styles.container}>
+        <View style={styles.card}>
+            {/* Avatar */}
             <View style={styles.avatar}>
-                <MaterialIcons name="person" size={36} color="#000" />
+                <Text style={styles.avatarText}>{title}</Text>
             </View>
-            <View style={styles.textContainer}>
-                <Text style={styles.name}>{name}</Text>
-                <Text style={styles.message} numberOfLines={1}>
-                    {text}
-                </Text>
+
+            {/* Message Info */}
+            <View style={styles.infoContainer}>
+                <View style={styles.header}>
+                    <Text style={styles.groupName}>{name}</Text>
+                    <Text style={styles.time}>{time}</Text>
+                </View>
+                <Text style={styles.message}>{message}</Text>
             </View>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    container: {
+    card: {
         flexDirection: 'row',
+        backgroundColor: '#fff',
+        borderRadius: 12,
+        padding: 20,
         alignItems: 'center',
-        paddingVertical: 10,
-        paddingHorizontal: 15,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        elevation: 2,
+        marginVertical: 5,
+        marginHorizontal: 10,
     },
     avatar: {
-        backgroundColor: '#222',
-        borderRadius: 999,
         width: 50,
         height: 50,
+        borderRadius: 25,
+        backgroundColor: '#2D9CDB',
         justifyContent: 'center',
         alignItems: 'center',
+        marginRight: 12,
     },
-    textContainer: {
-        marginLeft: 12,
-        flexShrink: 1,
-    },
-    name: {
+    avatarText: {
+        color: '#fff',
         fontWeight: 'bold',
         fontSize: 16,
-        marginBottom: 2,
+    },
+    infoContainer: {
+        flex: 1,
+    },
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    groupName: {
+        fontWeight: 'bold',
+        fontSize: 16,
+    },
+    time: {
+        fontSize: 12,
+        color: '#888',
     },
     message: {
-        fontSize: 14,
-        color: '#555',
+        color: '#333',
     },
 });
 
-export default MessagePreview;
+export default ChatCard;

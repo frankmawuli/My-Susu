@@ -1,5 +1,6 @@
 import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import colors from '@/colors/colors';
 
 export default function TabLayout() {
     return (
@@ -7,10 +8,12 @@ export default function TabLayout() {
             screenOptions={{
                 headerShown: false,
                 tabBarShowLabel: false,
-                tabBarActiveTintColor: "",
+                tabBarActiveTintColor: colors.primary,
+                tabBarInactiveTintColor: colors.blue,
+               
                 tabBarStyle: {
-                    backgroundColor: '#F5EEDC', // or your preferred shade
-                    borderTopWidth: 0,
+                    backgroundColor: 'white', // or your preferred shade
+                    borderTopWidth: 1,
                     position: 'absolute',
                     alignItems: 'center',
                     flexDirection: 'row',
@@ -20,13 +23,14 @@ export default function TabLayout() {
                     
                     
                     
+                    
                 },
             }}
         >
             <Tabs.Screen
                 name="chats"
                 options={{
-                    tabBarIcon: ({ size, color }) => <Ionicons name="chatbubbles-outline" size={24} color="black" />,
+                    tabBarIcon: ({ size, color }) => <Ionicons name="chatbubbles-outline" size={24} color={color} />,
                 }}
             />
             <Tabs.Screen
@@ -39,7 +43,7 @@ export default function TabLayout() {
                 name="index"
                 options={{
                     tabBarIcon: ({ size ,color}) => (
-                        <Ionicons name="home" size={24}  />
+                        <Ionicons name="home" size={24}   color={color}/>
                     ),
                 }}
             />

@@ -1,32 +1,19 @@
-import { View, Text, TouchableOpacity } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text } from 'react-native'
+import React from 'react'
+import ChatList from '@/Components/ChatList'
 import Header from '@/Components/Header'
+import { FontAwesome } from '@expo/vector-icons'
 import SearchBar from '@/Components/Search'
-import ChatList from '@/Components/ChartList'
-import GroupsList from '@/Components/GroupsList'
 
-export default function ChatsScreen() {
-  const [activeTab, setActiveTab] = useState<'chats' | 'groups'>('chats')
-
+export default function chats() {
   return (
-    <View>
-      <Header icon='menu' />
+    <View style={{ flex: 1,}}>
+      <Header icon={<FontAwesome name="plus" size={24} color="white" />}/>
       <SearchBar />
-      <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
-      {activeTab === 'chats' ? <ChatList /> : <GroupsList />}
-    </View>
-  )
-}
 
-const Tabs = ({ activeTab, setActiveTab }: { activeTab: 'chats' | 'groups', setActiveTab: (tab: 'chats' | 'groups') => void }) => {
-  return (
-    <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 20 }}>
-      <TouchableOpacity onPress={() => setActiveTab('chats')}>
-        <Text style={{ fontWeight: activeTab === 'chats' ? 'bold' : 'normal' }}>Chats</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => setActiveTab('groups')}>
-        <Text style={{ fontWeight: activeTab === 'groups' ? 'bold' : 'normal' }}>Groups</Text>
-      </TouchableOpacity>
+      <ChatList/>
+      
+      
     </View>
   )
 }

@@ -1,47 +1,36 @@
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 
-export default function Header({ icon }: { icon: string }) {
+export default function Header({ icon }: { icon: JSX.Element }) {
     return (
-        <SafeAreaView style={{ backgroundColor: '#f8f8f8' }}>
             <View style={styles.container}>
-                <View style={styles.titleContainer}>
-                    <Text style={styles.text}>My Susu</Text>
+                <Text style={styles.text}>MySusu</Text>
+                <View>
+                    {icon}
                 </View>
-                <Ionicons
-                    name={icon}
-                    size={24}
-                    color="black"
-                    style={styles.icon}
-                    accessibilityLabel="Notifications"
-                />
             </View>
-        </SafeAreaView>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
     container: {
+        backgroundColor: '#e87400',
         flexDirection: 'row',
-        justifyContent: 'space-between', // Ensures title is centered and icon is on the right
         alignItems: 'center',
-        padding: 20,
-        backgroundColor: '#f8f8f8',
-        borderBottomWidth: 1,
-        borderBottomColor: '#eee',
-        width: '100%',
-    },
-    titleContainer: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        alignItems: 'center', // Centers the title horizontally
+        justifyContent: 'space-between',
+        paddingVertical: 15,
+        paddingHorizontal: 20,
+        borderTopLeftRadius: 15,
+        borderTopRightRadius: 15,
+        borderBottomWidth: 0,    // Only show border on top & sides
     },
     text: {
-        fontSize: 20,
+        color: 'white',
+        fontSize: 18,
         fontWeight: 'bold',
     },
     icon: {
-        marginLeft: 'auto', // Pushes the icon to the right
-    }
+        marginLeft: 10,
+    },
 });
