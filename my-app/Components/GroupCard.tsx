@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { useNavToGroups } from '@/Helpers/navToGroups';
 
 interface GroupCardProps {
     name: string;
@@ -9,8 +10,9 @@ interface GroupCardProps {
 }
 
 export default function GroupCard({ name, color ,icon}: GroupCardProps) {
+    const { handleNavigation } = useNavToGroups();
     return (
-        <TouchableOpacity style={styles.card}>
+        <TouchableOpacity style={styles.card} onPress={handleNavigation}>
             <View style={[styles.iconWrapper, { backgroundColor: color }]}>
                {icon}
             </View>

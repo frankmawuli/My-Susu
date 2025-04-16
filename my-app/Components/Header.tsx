@@ -21,8 +21,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingVertical: 15,
         paddingHorizontal: 20,
-        borderTopLeftRadius: 15,
-        borderTopRightRadius: 15,
         borderBottomWidth: 0,    // Only show border on top & sides
     },
     text: {

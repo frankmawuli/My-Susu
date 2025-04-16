@@ -47,7 +47,7 @@ export default function GroupList() {
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{
                 paddingHorizontal: 16,
-                paddingVertical: 8,
+                paddingVertical: 5,
             }}
         />
     )

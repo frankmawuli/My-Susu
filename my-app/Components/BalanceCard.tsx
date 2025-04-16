@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.2,
         shadowRadius: 10,
         marginVertical: 20,
-        marginHorizontal: 20,
+        marginHorizontal: 16,
     },
     title: {
         color: 'white',

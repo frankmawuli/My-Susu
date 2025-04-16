@@ -5,7 +5,7 @@ import Header from '@/Components/Header'
 import GroupList from '@/Components/GroupList'
 import ChatCard from '@/Components/Chats'
 import TransactionCard from '@/Components/TransactionCard'
-import { AntDesign } from '@expo/vector-icons'
+import { AntDesign, FontAwesome } from '@expo/vector-icons'
 import { getInitials } from '@/Components/ChatList'
 const transactions = [
   {
@@ -34,7 +34,8 @@ export default function Index() {
   return (
     <View style={{ flex: 1, backgroundColor: 'white' }}>
       {/* Header OUTSIDE ScrollView */}
-      <Header icon={<AntDesign name="plus" size={24} color="white" />} />
+      <Header icon={<FontAwesome name="plus" size={24} color="white" />}/>
+      
 
       <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
         <BalanceCard />
